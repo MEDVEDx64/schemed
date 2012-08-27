@@ -1,0 +1,77 @@
+schemed - terminal Worms Armageddon scheme editor
+
+The schemed allows to quickly modify and/or create
+game scheme files of Worms Armageddon by calling
+it in terminal (bash, cmd, etc.) and telling some
+arguments (aka keys) to it. Usage:
+
+schemed [arguments]
+
+For example, we'll set infinite and full-powered rope
+to the scheme.wsc file:
+
+schemed -i scheme.wsc -wnr0 10 -wnr1 5
+
+or
+
+schemed --input scheme.wsc --ninja-rope-ammo 10 --ninja-rope-power 5
+
+The command above opens the scheme.wsc, makes the changes,
+and overwrites the scheme.wsc, because output file wasn't set
+(look for some basic args below).
+
+For now, there are no complete usage manual,
+but you can look for the basic usage tips below.
+So, there are a short list of the basic arguments:
+
+-i [FILE], --input [FILE]	Input file name
+-o [FILE], --output [FILE]	Output file name
+-n, --no-write			Forbids any writing operations
+-p, --print			Print the containment of the input file,
+				or output, if the output file is specified
+-a, --about			Display the About message and exit
+-h, --help			Display the Help message and exit
+
+How the filesaving system of the schemed works: if output
+file wasn't defined, schemed overwrites the input file;
+else writes the changes to the output file without touching
+of the input file.
+If input was not defiled, but output is, schemed will create
+a new scheme wile, write out the changes you've told as the args
+to the output file.
+If no input and no output was given, it will write the scheme
+to the `out.wsc' file.
+By the way, just been called (w/o args), schemed will create
+the empty `out.wsc' scheme file only with signature inside.
+
+Remember the ALL args (but not the args shown above) should
+have a decimal value right after. For example:
+
+--bazooka-ammo 5
+
+You can look for any scheme field names and weapons codes
+at http://worms2d.info/Game_scheme_file .
+
+For example, the `Turn Time' field name can be interpreted
+as argument `--turn-fime'. You also can use the short arguments:
+for `--turn-time' it will look like `-ftt' with `-f' prefix means
+`field'. It's same with weapons (`--holy-hand-grenade-ammo' =
+`-whhg0', with `-w' prefix means `weapon'), but there are the
+third arg format exist - digital. For the ammo field of grenade
+it will look like `-w030', where `03' is the weapon code.
+Oh, by the way, the last digit is a field switcher.
+0 is an ammo field; 1 - power; 2 - delay; 3 - crate probability
+(for example, --banana-bomb-delay = -wbbo2 = w072).
+
+Beware: some short (`-wba0'-like) arguments may become wrong
+due to letter conflicts (Banana Bomb - Baseball Bat).
+The schemed will warn you about an unknown argument, so you
+always can use the full argument.
+
+The schemed also supports the RubberWorm features.
+For example, the `-rsdet 1' arguments enables the `Shot Does
+not Ends Turn' mode (`-r' prefix means `rubber'); `-rsdet 0'
+turns it off. For all  RW options you can look there:
+http://worms2d.info/RubberWorm .
+
+ - MEDVEDx64.
