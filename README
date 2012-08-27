@@ -10,11 +10,11 @@ schemed [arguments]
 For example, we'll set infinite and full-powered rope
 to the scheme.wsc file:
 
-schemed -i scheme.wsc -wnr0 10 -wnr1 5
+schemed -i scheme.wsc -wnr0 10 -wnr1 4
 
 or
 
-schemed --input scheme.wsc --ninja-rope-ammo 10 --ninja-rope-power 5
+schemed --input scheme.wsc --ninja-rope-ammo 10 --ninja-rope-power 4
 
 The command above opens the scheme.wsc, makes the changes,
 and overwrites the scheme.wsc, because output file wasn't set
