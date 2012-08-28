@@ -16,7 +16,7 @@
  *	documentation (C) worms2d.info.
  *	http://worms2d.info/Game_scheme_file
  *
- *	- Last updated: 2012.08.27 -
+ *	- Last updated: 2012.08.28 -
  *
  *  ===============================================
  */
@@ -30,7 +30,7 @@
 /** Versioning **/
 #define SCHM_VERSION_MAJOR 0
 #define SCHM_VERSION_MINOR 2
-#define SCHM_VERSION_MICRO 0
+#define SCHM_VERSION_MICRO 1
 
 /*
  The W:A scheme file format contains game settings,
@@ -136,6 +136,10 @@ T_WEAPON_SETTINGS;
 
 /** File signature definition **/
 #define SCHM_SIGNATURE 0x4D484353
+
+/** File version definition **/
+ #define SCHM_FILE_VERSION 2
+ #define SCHM_FILE_VERSION_OLD 1
 
 /** File format **/
 typedef struct

@@ -13,7 +13,7 @@
  *	under the terms of GNU General Public License.
  *
  *	(C) MEDVEDx64, 2012.
- *	- Last updated: 2012.08.27 -
+ *	- Last updated: 2012.08.28 -
  *
  *  ===============================================
  */
@@ -31,6 +31,7 @@ SCHM_FILE schm_blank ()
 	SCHM_FILE scheme = *(SCHM_FILE*)buf;
 
 	scheme.signature = SCHM_SIGNATURE;
+	scheme.version = SCHM_FILE_VERSION;
 	return scheme;
 }
 
@@ -66,6 +67,10 @@ SCHM_FILE schm_load ( const char* fname )
 		return scheme;
 	}
 
+	/* Fixing version field */
+	if ( scheme.version == SCHM_FILE_VERSION_OLD )
+		scheme.version = SCHM_FILE_VERSION;
+
 	/* Finally we gonna check the signature */
 	if ( scheme.signature != SCHM_SIGNATURE )
 	{
@@ -92,8 +97,12 @@ int schm_save ( const char* fname, SCHM_FILE scheme )
 		/* ...and fixing it when mismatch */
 		scheme.signature = SCHM_SIGNATURE;
 
+	/* Forcing the version field to "new version" */
+	if(scheme.version != SCHM_FILE_VERSION)
+		scheme.version = SCHM_FILE_VERSION;
+
 	/* Now let's write out it all */
-	fwrite(&scheme, 1, SCHM_LENGTH, schm_file );
+	fwrite(&scheme, 1, SCHM_LENGTH, schm_file);
 	return 0;
 }
 
