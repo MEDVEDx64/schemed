@@ -382,11 +382,4 @@ SCHM_FILE	schm_load ( const char* fname );
 */
 int		schm_save ( const char* fname, SCHM_FILE scheme );
 
-/*!
-\brief				- Upconverts old W:A scheme format.
-\param fname		- Input file name.
-\returns			- Converted scheme.
-*/
-SCHM_FILE	schm_upconvert ( const char* fname );
-
 #endif /* SCHM_H */

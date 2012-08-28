@@ -105,15 +105,3 @@ int schm_save ( const char* fname, SCHM_FILE scheme )
 	fwrite(&scheme, 1, SCHM_LENGTH, schm_file);
 	return 0;
 }
-
-/* Upconverting from old scheme format */
-SCHM_FILE schm_upconvert ( const char* fname )
-{
-	FILE *i;
-	if(!fopen(fname, "rb"))
-		return schm_blank();
-
-	SCHM_FILE blnk = schm_blank();
-	int a = fread(&blnk, 1, SCHM_LENGTH_OLD_FORMAT, i);
-	return blnk;
-}
