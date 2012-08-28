@@ -42,7 +42,8 @@ to the output file.
 If no input and no output was given, it will write the scheme
 to the `out.wsc' file.
 By the way, just been called (w/o args), schemed will create
-the empty `out.wsc' scheme file only with signature inside.
+the empty `out.wsc' scheme file only with signature
+and version field inside.
 
 Remember the ALL args (but not the args shown above) should
 have a decimal value right after. For example:
