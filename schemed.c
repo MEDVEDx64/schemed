@@ -1,14 +1,14 @@
 /*
  *  schemed.c - W:A scheme file editor
- *  (C) MEDVEDx64, 13-17.5.2012, 27.8.2012
+ *  (C) MEDVEDx64, 13-17.5.2012, 27-28.8.2012
  */
 
 #include <stdlib.h>
 #include <string.h>
 #include "schm.h"
 
-#define SCHEMED_VERSION "0.2.0 beta"
-#define SCHEMED_DATE "2012.08.27" /* last updated */
+#define SCHEMED_VERSION "0.2.1 beta"
+#define SCHEMED_DATE "2012.08.28" /* last updated */
 #define DEF_FNAME "out.wsc"
 #define ARG_IS_INCOMP "%cIgnoring incompleted argument: %s\n"
 
