@@ -30,7 +30,7 @@
 /** Versioning **/
 #define SCHM_VERSION_MAJOR 0
 #define SCHM_VERSION_MINOR 2
-#define SCHM_VERSION_MICRO 1
+#define SCHM_VERSION_MICRO 2
 
 /*
  The W:A scheme file format contains game settings,

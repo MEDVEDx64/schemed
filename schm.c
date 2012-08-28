@@ -67,10 +67,6 @@ SCHM_FILE schm_load ( const char* fname )
 		return scheme;
 	}
 
-	/* Fixing version field */
-	if ( scheme.version == SCHM_FILE_VERSION_OLD )
-		scheme.version = SCHM_FILE_VERSION;
-
 	/* Finally we gonna check the signature */
 	if ( scheme.signature != SCHM_SIGNATURE )
 	{
