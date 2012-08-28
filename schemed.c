@@ -7,7 +7,7 @@
 #include <string.h>
 #include "schm.h"
 
-#define SCHEMED_VERSION "0.2.1 beta"
+#define SCHEMED_VERSION "0.2.2 beta"
 #define SCHEMED_DATE "2012.08.28" /* last updated */
 #define DEF_FNAME "out.wsc"
 #define ARG_IS_INCOMP "%cIgnoring incompleted argument: %s\n"
@@ -82,6 +82,7 @@ bitmod              /* Thanks to A.A.C. */
 void
 schmprint(SCHM_FILE _scheme)
 {
+    printf("Signature: 0x%x\n", _scheme.signature);
     printf("Verion: %d\n", _scheme.version);
 	printf("Hot-seat delay: %d\n", _scheme.hotseat_delay);
 	printf("Retreat time: %d\n", _scheme.retreat_time);
