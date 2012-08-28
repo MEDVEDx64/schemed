@@ -90,12 +90,18 @@ int schm_save ( const char* fname, SCHM_FILE scheme )
 
 	/* Checking the signature */
 	if ( scheme.signature != SCHM_SIGNATURE )
+	{
 		/* ...and fixing it when mismatch */
+		printf(" > schm_save() warning: fixing wrong scheme signature.\n");
 		scheme.signature = SCHM_SIGNATURE;
+	}
 
 	/* Forcing the version field to "new version" */
 	if(scheme.version != SCHM_FILE_VERSION)
+	{
+		printf(" > schm_save warning: fixing wrong scheme version field.\n");
 		scheme.version = SCHM_FILE_VERSION;
+	}
 
 	/* Now let's write out it all */
 	fwrite(&scheme, 1, SCHM_LENGTH, schm_file);
