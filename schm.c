@@ -57,10 +57,11 @@ SCHM_FILE schm_load ( const char* fname )
 	rewind ( schm_file );
 
 	/* Checking the file length and loading the scheme */
+	int dummy = 0;
 	if ( fsize == SCHM_LENGTH )
-		if(fread(&scheme, 1, SCHM_LENGTH, schm_file));
+		dummy = fread(&scheme, 1, SCHM_LENGTH, schm_file);
 	else if ( fsize == SCHM_LENGTH_OLD_FORMAT )
-		if(fread(&scheme, 1, SCHM_LENGTH_OLD_FORMAT, schm_file));
+		dummy = fread(&scheme, 1, SCHM_LENGTH_OLD_FORMAT, schm_file);
 	else
 	{
 		scheme.signature = 2;
@@ -71,11 +72,11 @@ SCHM_FILE schm_load ( const char* fname )
 	if ( scheme.signature != SCHM_SIGNATURE )
 	{
 		/* Return 3 if mismatch */
-		scheme = schm_blank();
 		scheme.signature = 3;
 		return scheme;
 	}
 
+	fclose(schm_file);
 	return scheme;
 }
 
@@ -105,5 +106,6 @@ int schm_save ( const char* fname, SCHM_FILE scheme )
 
 	/* Now let's write out it all */
 	fwrite(&scheme, 1, SCHM_LENGTH, schm_file);
+	fclose(schm_file);
 	return 0;
 }

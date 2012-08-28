@@ -264,9 +264,9 @@ version "SCHEMED_VERSION" (MEDVEDx64, "SCHEMED_DATE")\n");
                 case 4:
                 scheme.weapon_settings[_RW_KAOSMOD].crate_probability = _R__KAOSMOD4; break;
                 case 5:
-                scheme.weapon_settings[_RW_KAOSMOD].crate_probability = _R__KAOSMOD0; break;
+                scheme.weapon_settings[_RW_KAOSMOD].crate_probability = _R__KAOSMOD5; break;
                 default:
-                scheme.weapon_settings[_RW_KAOSMOD].crate_probability = 0; break;
+                scheme.weapon_settings[_RW_KAOSMOD].crate_probability = _R__KAOSMOD0; break;
             }
         }
     }
