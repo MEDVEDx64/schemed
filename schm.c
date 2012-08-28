@@ -57,29 +57,26 @@ SCHM_FILE schm_load ( const char* fname )
 	rewind ( schm_file );
 
 	/* Checking the file length and loading the scheme */
+	int dummy = 0;
 	if ( fsize == SCHM_LENGTH )
-		if(fread(&scheme, 1, SCHM_LENGTH, schm_file));
+		dummy = fread(&scheme, 1, SCHM_LENGTH, schm_file);
 	else if ( fsize == SCHM_LENGTH_OLD_FORMAT )
-		if(fread(&scheme, 1, SCHM_LENGTH_OLD_FORMAT, schm_file));
+		dummy = fread(&scheme, 1, SCHM_LENGTH_OLD_FORMAT, schm_file);
 	else
 	{
 		scheme.signature = 2;
 		return scheme;
 	}
 
-	/* Fixing version field */
-	if ( scheme.version == SCHM_FILE_VERSION_OLD )
-		scheme.version = SCHM_FILE_VERSION;
-
 	/* Finally we gonna check the signature */
 	if ( scheme.signature != SCHM_SIGNATURE )
 	{
 		/* Return 3 if mismatch */
-		scheme = schm_blank();
 		scheme.signature = 3;
 		return scheme;
 	}
 
+	fclose(schm_file);
 	return scheme;
 }
 
@@ -94,14 +91,21 @@ int schm_save ( const char* fname, SCHM_FILE scheme )
 
 	/* Checking the signature */
 	if ( scheme.signature != SCHM_SIGNATURE )
+	{
 		/* ...and fixing it when mismatch */
+		printf(" > schm_save() warning: fixing wrong scheme signature.\n");
 		scheme.signature = SCHM_SIGNATURE;
+	}
 
 	/* Forcing the version field to "new version" */
 	if(scheme.version != SCHM_FILE_VERSION)
+	{
+		printf(" > schm_save warning: fixing wrong scheme version field.\n");
 		scheme.version = SCHM_FILE_VERSION;
+	}
 
 	/* Now let's write out it all */
 	fwrite(&scheme, 1, SCHM_LENGTH, schm_file);
+	fclose(schm_file);
 	return 0;
 }
