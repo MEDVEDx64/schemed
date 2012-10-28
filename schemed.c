@@ -1,14 +1,14 @@
 /*
  *  schemed.c - W:A scheme file editor
- *  (C) MEDVEDx64, 13-17.5.2012, 27-28.8.2012
+ *  (C) MEDVEDx64, 13-17.5.2012, 27-28.8.2012, 28.10.2012
  */
 
 #include <stdlib.h>
 #include <string.h>
 #include "schm.h"
 
-#define SCHEMED_VERSION "0.2.2 beta"
-#define SCHEMED_DATE "2012.08.28" /* last updated */
+#define SCHEMED_VERSION "0.2.3 beta"
+#define SCHEMED_DATE "2012.10.28" /* last updated */
 #define DEF_FNAME "out.wsc"
 #define ARG_IS_INCOMP "%cIgnoring incompleted argument: %s\n"
 
@@ -31,7 +31,7 @@
 #define _RW_VERSION WEAPON_SELECT_WORM
 #define _RW_CRATERATE WEAPON_INDIAN_NUCLEAR_TEST
 #define _RW_CRATELIMIT WEAPON_PATSYS_MAGIC_BULLET
-#define _RW_KNOCK WEAPON_SUPER_BANANA
+#define _RW_KNOCK WEAPON_SUPER_BANANA_BOMB
 
 #define _RB_WDCA 6
 #define _RW_WDCA WEAPON_MOLE_SQUADRON
