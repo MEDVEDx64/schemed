@@ -31,6 +31,7 @@
 #define _RW_VERSION WEAPON_SELECT_WORM
 #define _RW_CRATERATE WEAPON_INDIAN_NUCLEAR_TEST
 #define _RW_CRATELIMIT WEAPON_PATSYS_MAGIC_BULLET
+#define _RW_KNOCK WEAPON_SUPER_BANANA
 
 #define _RB_WDCA 6
 #define _RW_WDCA WEAPON_MOLE_SQUADRON
@@ -947,6 +948,8 @@ version "SCHEMED_VERSION" (MEDVEDx64, "SCHEMED_DATE")\n");
             scheme.weapon_settings[_RW_FLAMES].crate_probability = atoi(argv[x+1]);
         else if(!strcmp(argv[x], "-rspeed") && x<argc-1)
             scheme.weapon_settings[_RW_SPEED].crate_probability = atoi(argv[x+1]);
+	else if(!strcmp(argv[x], "-rknock") && x<argc-1)
+            scheme.weapon_settings[_RW_KNOCK].crate_probability = atoi(argv[x+1]);
         else if(!strcmp(argv[x], "-rts8") && x<argc-1)
         {
             if(atoi(argv[x+1])) scheme.weapon_settings[_RW_SPEED].crate_probability = _R__TS8;
